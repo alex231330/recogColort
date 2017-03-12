@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7127F0131E6B15D2000E6472 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7127F0121E6B15D2000E6472 /* main.cpp */; };
+		7127F01A1E6B1664000E6472 /* libopencv_highgui.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7127F0191E6B1664000E6472 /* libopencv_highgui.3.2.0.dylib */; };
+		7127F01C1E6B1680000E6472 /* libopencv_core.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7127F01B1E6B1680000E6472 /* libopencv_core.3.2.0.dylib */; };
+		7127F01E1E6B1694000E6472 /* libopencv_imgproc.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7127F01D1E6B1693000E6472 /* libopencv_imgproc.3.2.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		7127F00F1E6B15D2000E6472 /* recogColort */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = recogColort; sourceTree = BUILT_PRODUCTS_DIR; };
 		7127F0121E6B15D2000E6472 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7127F0191E6B1664000E6472 /* libopencv_highgui.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.3.2.0.dylib; path = "../../../Documents/opencv-3.2.0/build/lib/libopencv_highgui.3.2.0.dylib"; sourceTree = "<group>"; };
+		7127F01B1E6B1680000E6472 /* libopencv_core.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.3.2.0.dylib; path = "../../../Documents/opencv-3.2.0/build/lib/libopencv_core.3.2.0.dylib"; sourceTree = "<group>"; };
+		7127F01D1E6B1693000E6472 /* libopencv_imgproc.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.3.2.0.dylib; path = "../../../Documents/opencv-3.2.0/build/lib/libopencv_imgproc.3.2.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7127F01E1E6B1694000E6472 /* libopencv_imgproc.3.2.0.dylib in Frameworks */,
+				7127F01A1E6B1664000E6472 /* libopencv_highgui.3.2.0.dylib in Frameworks */,
+				7127F01C1E6B1680000E6472 /* libopencv_core.3.2.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +50,9 @@
 		7127F0061E6B15D2000E6472 = {
 			isa = PBXGroup;
 			children = (
+				7127F01D1E6B1693000E6472 /* libopencv_imgproc.3.2.0.dylib */,
+				7127F01B1E6B1680000E6472 /* libopencv_core.3.2.0.dylib */,
+				7127F0191E6B1664000E6472 /* libopencv_highgui.3.2.0.dylib */,
 				7127F0111E6B15D2000E6472 /* recogColort */,
 				7127F0101E6B15D2000E6472 /* Products */,
 			);
@@ -217,7 +229,33 @@
 		7127F0171E6B15D2000E6472 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DEVELOPMENT_TEAM = 3D493D34W5;
+				FRAMEWORK_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"/Users/alex231330/Documents/opencv-3.2.0/include",
+				);
+				LIBRARY_SEARCH_PATHS = "/Users/alex231330/Documents/opencv-3.2.0/build/lib";
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lopencv_core",
+					"-lopencv_features2d",
+					"-lopencv_flann",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_ml",
+					"-lopencv_objdetect",
+					"-lopencv_photo",
+					"-lopencv_shape",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_ts",
+					"-lopencv_video",
+					"-lopencv_videoio",
+					"-lopencv_videostab",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -225,7 +263,33 @@
 		7127F0181E6B15D2000E6472 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DEVELOPMENT_TEAM = 3D493D34W5;
+				FRAMEWORK_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"/Users/alex231330/Documents/opencv-3.2.0/include",
+				);
+				LIBRARY_SEARCH_PATHS = "/Users/alex231330/Documents/opencv-3.2.0/build/lib";
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lopencv_core",
+					"-lopencv_features2d",
+					"-lopencv_flann",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_ml",
+					"-lopencv_objdetect",
+					"-lopencv_photo",
+					"-lopencv_shape",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_ts",
+					"-lopencv_video",
+					"-lopencv_videoio",
+					"-lopencv_videostab",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
