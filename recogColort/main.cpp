@@ -12,6 +12,9 @@
 #include <opencv/highgui.h>
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
+#include <iostream>
+#include <unistd.h>
+#include <fstream>
 
 using namespace cv;
 using namespace std;
@@ -20,19 +23,21 @@ using namespace std;
 
 vector<int> compSize;
 vector<CvPoint> st;
+int trpleRgb[3][3][3];
 
 int main(int argc, const char * argv[]) {
+   // FILE* nxt;
+   // nxt = fopen("/dev/tty.Bluetooth-Incoming-Port", "w");
     namedWindow("Controls", CV_WINDOW_AUTOSIZE);
-    int hue = 0,s = 0,v = 0;
-    cvCreateTrackbar("H", "Controls", &hue, 255);
-    cvCreateTrackbar("S", "Controls", &s, 255);
-    cvCreateTrackbar("V", "Controls", &v, 255);
+    int hue = 0, s = 0, v = 0;
+    cvCreateTrackbar("H", "Controls", &hue, 360);
+    cvCreateTrackbar("S", "Controls", &s, 100);
+    cvCreateTrackbar("V", "Controls", &v, 100);
     CvCapture* capture = cvCreateCameraCapture(0);
     IplImage* frame = 0;
     IplImage* gray = cvCreateImage(cvGetSize(cvQueryFrame(capture)), IPL_DEPTH_8U, 3);
     IplImage* binary = cvCreateImage( cvGetSize( cvQueryFrame(capture) ), 8, 1 );
     IplImage* preCopy = cvCreateImage(cvGetSize(cvQueryFrame(capture)), IPL_DEPTH_8U, 3);
-    IplImage* drawContrs = cvCreateImage(cvGetSize(cvQueryFrame(capture)), IPL_DEPTH_8U, 3);
     int w = cvGetSize(cvQueryFrame(capture)).width, h = cvGetSize(cvQueryFrame(capture)).height;
     int comp[h][w];
     CvMemStorage* storage = cvCreateMemStorage(0);
@@ -50,7 +55,6 @@ int main(int argc, const char * argv[]) {
                     PointVal(gray, x, y, 0) = 255;
                     PointVal(gray, x, y, 1) = 255;
                     PointVal(gray, x, y, 2) = 255;
-                    
                 }
             }
         }
@@ -110,9 +114,10 @@ int main(int argc, const char * argv[]) {
         for( CvSeq* c = contours; c != NULL; c = c -> h_next)
         {
             CvRect Rect = cvBoundingRect( c );
-            if ( Rect.width && Rect.height < 120 ) continue;
+            if ( Rect.width * Rect.height < 120 ) continue;
             cvRectangle( gray, cvPoint( Rect.x, Rect.y ), cvPoint( Rect.x + Rect.width, Rect.y + Rect.height ), CV_RGB(255,0,0), 2 );
         }
+        
         //cvShowImage("Contours Recognition", binary);
         cvShowImage("Colors Reconition", gray);
         //cvShowImage("Contour ", drawContrs);
@@ -120,6 +125,7 @@ int main(int argc, const char * argv[]) {
         if (waitKey(100) == 27)
         {
             cout << "esc key is pressed" << endl;
+          //  fclose(nxt);
             break;
         }
     }

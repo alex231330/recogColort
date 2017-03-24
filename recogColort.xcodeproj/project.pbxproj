@@ -235,6 +235,8 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"/Users/alex231330/Documents/opencv-3.2.0/include",
+					/Users/alex231330/Library/Mobile,
+					"Documents/com~apple~CloudDocs/FANN-2.2.0-Source/src/include",
 				);
 				LIBRARY_SEARCH_PATHS = "/Users/alex231330/Documents/opencv-3.2.0/build/lib";
 				OTHER_LDFLAGS = (
@@ -269,6 +271,8 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"/Users/alex231330/Documents/opencv-3.2.0/include",
+					/Users/alex231330/Library/Mobile,
+					"Documents/com~apple~CloudDocs/FANN-2.2.0-Source/src/include",
 				);
 				LIBRARY_SEARCH_PATHS = "/Users/alex231330/Documents/opencv-3.2.0/build/lib";
 				OTHER_LDFLAGS = (
@@ -313,6 +317,7 @@
 				7127F0181E6B15D2000E6472 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
